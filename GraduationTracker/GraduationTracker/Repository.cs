@@ -1,51 +1,25 @@
-﻿namespace GraduationTracker
+﻿using System.Linq;
+
+namespace GraduationTracker
 {
     public class Repository
     {
         public static Student GetStudent(int id)
         {
             var students = GetStudents();
-            Student student = null;
-
-            for (int i = 0; i < students.Length; i++)
-            {
-                if (id == students[i].Id)
-                {
-                    student = students[i];
-                }
-            }
-            return student;
+            return students.FirstOrDefault(s => s.Id == id);
         }
 
         public static Diploma GetDiploma(int id)
         {
             var diplomas = GetDiplomas();
-            Diploma diploma = null;
-
-            for (int i = 0; i < diplomas.Length; i++)
-            {
-                if (id == diplomas[i].Id)
-                {
-                    diploma = diplomas[i];
-                }
-            }
-            return diploma;
-
+            return diplomas.FirstOrDefault(d => d.Id == id);
         }
 
         public static Requirement GetRequirement(int id)
         {
             var requirements = GetRequirements();
-            Requirement requirement = null;
-
-            for (int i = 0; i < requirements.Length; i++)
-            {
-                if (id == requirements[i].Id)
-                {
-                    requirement = requirements[i];
-                }
-            }
-            return requirement;
+            return requirements.FirstOrDefault(r => r.Id == id);
         }
 
         private static Diploma[] GetDiplomas()
@@ -81,10 +55,10 @@
                     Id = 1,
                     Courses = new Course[]
                     {
-                        new Course{Id = 1, Name = "Math", Mark=95 },
-                        new Course{Id = 2, Name = "Science", Mark=95 },
-                        new Course{Id = 3, Name = "Literature", Mark=95 },
-                        new Course{Id = 4, Name = "Physichal Education", Mark=95 }
+                        new Course{Id = 1, Name = "Math", Mark=95, Credits=1 },
+                        new Course{Id = 2, Name = "Science", Mark=95, Credits=1 },
+                        new Course{Id = 3, Name = "Literature", Mark=95, Credits=1 },
+                        new Course{Id = 4, Name = "Physichal Education", Mark=95, Credits=1 }
                     }
                 },
                 new Student
@@ -92,10 +66,10 @@
                     Id = 2,
                     Courses = new Course[]
                     {
-                        new Course{Id = 1, Name = "Math", Mark=80 },
-                        new Course{Id = 2, Name = "Science", Mark=80 },
-                        new Course{Id = 3, Name = "Literature", Mark=80 },
-                        new Course{Id = 4, Name = "Physichal Education", Mark=80 }
+                        new Course{Id = 1, Name = "Math", Mark=80, Credits=1 },
+                        new Course{Id = 2, Name = "Science", Mark=80, Credits=1 },
+                        new Course{Id = 3, Name = "Literature", Mark=80, Credits=1 },
+                        new Course{Id = 4, Name = "Physichal Education", Mark=80, Credits=1 }
                     }
                 },
                 new Student
@@ -103,10 +77,10 @@
                     Id = 3,
                     Courses = new Course[]
                     {
-                        new Course{Id = 1, Name = "Math", Mark=50 },
-                        new Course{Id = 2, Name = "Science", Mark=50 },
-                        new Course{Id = 3, Name = "Literature", Mark=50 },
-                        new Course{Id = 4, Name = "Physichal Education", Mark=50 }
+                        new Course{Id = 1, Name = "Math", Mark=50, Credits=1 },
+                        new Course{Id = 2, Name = "Science", Mark=50, Credits=1 },
+                        new Course{Id = 3, Name = "Literature", Mark=50, Credits=1 },
+                        new Course{Id = 4, Name = "Physichal Education", Mark=50, Credits=1 }
                     }
                 },
                 new Student
@@ -114,10 +88,10 @@
                     Id = 4,
                     Courses = new Course[]
                     {
-                        new Course{Id = 1, Name = "Math", Mark=40 },
-                        new Course{Id = 2, Name = "Science", Mark=40 },
-                        new Course{Id = 3, Name = "Literature", Mark=40 },
-                        new Course{Id = 4, Name = "Physichal Education", Mark=40 }
+                        new Course{Id = 1, Name = "Math", Mark=40, Credits=1 },
+                        new Course{Id = 2, Name = "Science", Mark=40, Credits=1 },
+                        new Course{Id = 3, Name = "Literature", Mark=40, Credits=1 },
+                        new Course{Id = 4, Name = "Physichal Education", Mark=40, Credits=1 }
                     }
                 }
             };
